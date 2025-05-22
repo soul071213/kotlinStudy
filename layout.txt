@@ -1,7 +1,75 @@
+match_parent : 할수있는 데로 최대까지
+wrap_content : 최소값
+
 LinearLayout
 포함된 자식 뷰를 선형으로 배치시키는 레이아웃입니다.
 선형으로 배치하기 때문에 가로 혹은 세로 방향 등 2가지 방법으로 View를 배치할 수 있죠
 
+orientation
+vertical : 세로로 정렬
+horizontal : 가로로 정렬
+none : 기본 값 horizontal
+
+View의 필수 속성 layout_width layout_height
+layout_width(가로 넓이) layout_height(세로높이) 속성은 필수 
+
 gravity 객체가 자신의 경계 내에서 X축과 Y축의 내용을 배치하는 방법을 지정합니다. 설정한 값은 단일 행이나 열 내의 모든 자식 뷰의 가로 및 세로 정렬에 영향을 줍니다.
 
 layout_gravity 구성 요소를 셀 그룹에 배치하는 방법을 지정합니다. 기본 값은 LEFT BASELINE입니다.
+
+gravity 속성은 이렇게 지정한 객체 입장에서 컨텐츠의 정렬을 변경할 수 있도록 합니다.
+
+layout_gravity는 View자신의 위치를 부모 뷰를 기준으로 정렬하는 속성
+
+RelativeLayout
+View를 부모 뷰 또는 다른 View와의 상대적인 위치 관계 기반으로 배치합니다.
+
+속성
+부모 뷰를 기준으로 배치를 하는 것
+부모 뷰가 같은 형제 뷰를 기주능로 배치하는 것
+
+RTL(Right to Left)
+화면을 보는 방식을 의미
+대한민국의 경우 LTR(Left to Right)방식 사용 왼쪽에서 오른쪽으로 화면을 봄
+RTL 방식은 거꾸로 오른쪽에서 왼쪽으로 보는 방식
+
+형제 뷰
+형제뷰란 같은 부모 뷰를 공유하는 View들
+
+ConstraintLayout
+제약 조건을 기반으로 View를 배치하는 레이아웃으로 Android SDK 에 기본으로 포함된 것은 아니지만 Google에서 제공하는 Support라이브러리로 제공되며 매우 강력
+
+
+Bias
+수평 또는 수직 방향으로 제약을 2개 추가하게 되면 더는 제약을 지킬 수 없는 상태가 됩니다. 이 겨웅 ConstraintLayout은 매우 유용한 기능인 Bias를 사용할 수 있습니다.
+
+Bias는 수직 또는 수평에 대한 2개의 제약이 모두 설정되었다면 레이아웃 편집화면에서 마우스로 직접 이동하여 조절도 가능합니다. 
+
+게다가 마우스로 위치를 지정해도 포센티지로 위치한 것이기 때문에 다양한 해상도를 지원할 수 있습니다.
+
+wrap_content 컨텐츠의 크기만큼 View의 사이즈가 조정됩니다.
+match_constraint 제약 조건의 라인과 크기를 일치시킵니다. 제약 조건을 지키는 범위 내에서 최대 크기를 가지는 것과 같습니다.
+fixerd_size 고정된 사이즈입니다. 80dp 등 고정된 사이즈를 가지게 합니다.
+
+Circle제약
+특정 뷰를 기준으로 View를 원형으로 배치되도록 하는 기능
+
+Guidline 뷰를 더 쉽게 배치 할 수 있도록 기준선을 추가
+layout_constraintGuide_begin  : 부모 뷰의 시작 지점으로 부터 떨어진 위치를 지정합니다
+ " _end : 부모 뷰의 지점으로부터 떨어진 위치를 지정합니다
+ " _percent : 부모 뷰를 기준으로 떨어진 위치를 Percent로 지정합니다. 
+
+체인
+가로축 또는 세로축을 기준으로 여러개의 View를 그룹 처럼 관리하게 해 주는데 별도로 속성이 존재하는 것이 아니라 2개의 뷰가 서로를 참조하고 있으면 Chain으로 묶이는 것
+
+서로 상호 제약이 걸린 상태가 바로 체인 이고 여러개의 View가 체인으로 연결되어 잇을 때 그 첫번째 View를 가지켜 Chain Head 라 한다
+
+Chain_Spread 각 View들이 동일한 간격으로 펼쳐지게 합니다
+Chain_Spread_Inside Chain_Spread처럼 펼처지지만 View의 양 끝은 펼치지 않습니다. 즉 여백을 두지 않습니다.
+Chain_Packed View 사이에 여백을 두어 펼치지 않고 딱 붙게 합니다 Chain_Packed 상태에서는 bias로 Packed된 뷰의 위치를 조정할 수 있습니다.
+Weighted chain 체인으로 묶인 View의 일부가 match_constraint인 경우 비율로서 크기를 지정할 수 있습니다.
+
+theme
+테마를 정의하기 위해서는 res > value 리소스로 style을 정의한다
+테마는 [.]연산자를 사용하여 상속이 가능하다
+Activity에 테마를 적용하려면 AndroidManifest.xml파일에서 Activity:theme에 테마를 정의한다
